@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+    <style>
+      #card {
+        width: 235px;
+        height: 320px;
+        transition: 0.5s ease-in-out;
+        background-image: url("https://i.loli.net/2021/02/21/V6JPwK5f2spQ7Sb.png");
+        background-size: cover;
+      }
+      #card.card-flip {
+        transform: rotateY(180deg) scaleX(-1);
+        background-image: url("https://i.loli.net/2021/02/21/5IS7WNAlLC6QHYq.png");
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>参考：https://www.cnblogs.com/star91/p/yi-zhong-jian-dan-decss-fan-pai-xiao-guo-shi-xian.html</div>
+    <div id="card"></div>
+    <script>
+      const card = document.querySelector("#card");
+      card.addEventListener("click", function () {
+        this.classList.toggle("card-flip");
+      });
+    </script>
+  </body>
+</html>

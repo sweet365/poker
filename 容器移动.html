@@ -1,0 +1,47 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>动态添加容器</title>
+    <style>
+      .container {
+        width: 500px;
+        height: 500px;
+        border: 1px solid black;
+        position: relative;
+      }
+
+      .box {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        /* position: absolute;
+        top: 0;
+        right: 0; */
+        transition: right 2s;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="addBox()">增加小容器</button>
+    <div class="container" id="mainContainer">
+    </div>
+    <script>
+      let container = document.getElementById("mainContainer");
+      let boxCount = 0;
+
+      function addBox() {
+        let box = document.createElement("div");
+        box.className = "box";
+        box.style.right = "0";
+        box.style.transition = "right 2s";
+        container.appendChild(box);
+
+        setTimeout(() => {
+          box.style.right = container.offsetWidth - box.offsetWidth + "px";
+        }, 100);
+      }
+    </script>
+  </body>
+</html>

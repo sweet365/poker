@@ -1,0 +1,42 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>动态添加容器</title>
+    <style>
+      body {
+        position: relative;
+      }
+      #container {
+        width: 200px;
+        height: 100px;
+        background-color: #f0f0f0;
+        position: absolute;
+        right: 0;
+        top: 20px;
+        transition: right 1s ease-in-out;
+      }
+
+      .right-side {
+        right: 0;
+      }
+
+      .left-side {
+        right: -200px; /* 设置为div宽度的负值，使其完全移出屏幕视野 */
+      }
+    </style>
+  </head>
+  <body>
+    <button id="animateButton">点击我</button>
+    <div id="container" class="right-side">内容</div>
+    <script>
+      document
+        .getElementById("animateButton")
+        .addEventListener("click", function () {
+          var container = document.getElementById("container");
+          container.classList.add("left-side");
+          container.classList.remove("right-side");
+        });
+    </script>
+  </body>
+</html>
